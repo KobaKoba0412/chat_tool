@@ -1,0 +1,26 @@
+html, body,container {
+  height: 100%;
+}
+
+img.logo{
+    width: 140px;
+    height: 45px;
+}
+
+.icon
+{
+    background-color:white;
+}
+
+.info_main
+{
+    background-color:white;
+}
+
+.in_body{
+  height: 75%;
+}
+.sw_place
+{
+    background-color: blue;
+}

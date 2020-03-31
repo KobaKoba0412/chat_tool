@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="jap">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slack | Slackbot</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="../../static/css/slack_main.css">
+    <!-- icon -->
+    <script src="https://kit.fontawesome.com/b14ae37d5f.js" crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="aside">
+        
+            <div class="group_name">グループ名</div>
+            <div class="user_name">ユーザ名</div>
+        
+            <ul>
+                <li>チャンネル</li>
+                <li>ダイレクトメッセージ</li>
+                <li>最近使用したアプリ</li>
+            </ul>
+        
+        </div>
+        
+        <div class="main">
+        
+            <header>
+                <div>ユーザ名</div>
+
+                <ul class="icon_list">
+                    <li> <i class="fal fa-phone"></i> </li>
+                    <li> <i class="fal fa-info-circle"></i> </li>
+                    <li> <i class="far fa-cog"></i> </li>
+                    <li> <i class="far fa-at"></i> </li>
+                    <li> <i class="far fa-star"></i> </li>
+                </ul>
+            </header>
+        
+            <div class="chat_contents">
+
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            <p>koba</p>
+            
+            </div>
+        
+            <footer>
+                <form action="" method="POST" name="message">
+                    <textarea name="message" id="slac_message" placeholder="メッセージ"></textarea>
+                    <input type="submit" value="送信">
+                </form>      
+            </footer>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+        <script>
+            //ヘッダーの高さ分だけコンテンツを下げる
+            $(function () {
+                var height_header = $("header").height();
+                $(".chat_contents").css("margin-top", height_header);
+
+                var height_footer = $("footer").height();
+                $(".chat_contents").css("margin-bottom", height_footer);
+
+
+
+
+            });
+        </script>
+
+</body>
+
+</html>

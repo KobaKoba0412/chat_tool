@@ -1,0 +1,85 @@
+img.logo{
+    width: 140px;
+    height: 45px;
+}
+
+.header_list ul{
+    display: flex;
+    float: right; 
+    color: gray;
+    font-size: 15px;
+    font-weight:bold;
+    list-style-type: none;
+}
+
+header{
+    background-color:white;
+    display: flex;
+    justify-content: center; /* 子要素をflexboxにより中央に配置する */
+    align-items: center;  /* 子要素をflexboxにより中央に配置する */
+}
+
+.body{
+    height: 500px; 
+    display: flex;
+    flex-direction: column; /* 子要素をflexboxにより縦方向に揃える */
+    justify-content: center; /* 子要素をflexboxにより中央に配置する */
+    align-items: center;  /* 子要素をflexboxにより中央に配置する */
+}
+
+.form{
+    width: 432px;
+}
+
+.signin_sub
+{
+    margin-left: 100px;
+    margin-right: 100px;
+    
+}
+.slaccom{
+    font-size: 20px;
+    font-weight:bold;
+    padding: 4px;
+    text-align: left;
+}
+.no-gutters {
+  margin:0;
+  padding:0;
+}
+ 
+.no-gutters　> .col,
+.no-gutters　> [class*="col-"] {
+  margin:0;
+  padding:0;
+}
+
+.signin_main{
+    width: 550px;
+    height: 300px; 
+    display: flex;
+    flex-direction: column; /* 子要素をflexboxにより縦方向に揃える */
+    justify-content: center; /* 子要素をflexboxにより中央に配置する */
+    align-items: center;  /* 子要素をflexboxにより中央に配置する */
+    background-color: white;
+}
+
+.signin_main h1{
+    font-size: 30px;
+    font-weight:bold;
+    float: left;
+}
+.participating_workspace{
+    border: solid;
+    border-color: gray;
+    border-width: 2px;
+}
+
+footer{
+    background-color: white;
+    font-size: 12px;
+}
+
+footer ul{
+    list-style-type: none;
+}

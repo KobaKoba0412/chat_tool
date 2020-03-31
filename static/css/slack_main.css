@@ -1,0 +1,97 @@
+body{
+    /* overflow: hidden;    スクロールバーの非表示　　 */
+    margin: 0px;
+}
+
+html,body { 
+    height:100%; 
+    width: 100%;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    height: 100%;    /*  100vhはアドレスバーも含めた高さになってしまうため100%にした。　　*/
+    width: 100%;
+    font-size: 20px;
+}
+
+.main{
+    /* display: grid; */
+    /* grid-template-rows: 1fr 9fr 2fr;   */
+    width: 100%;                /* 横幅100%　*/
+}
+
+.aside{
+    background:#4d004d;
+    color: aliceblue;
+    font-size: 3.5rem; 
+}
+
+.group_name{
+    font-weight: bold;
+}
+
+.aside ul{
+    list-style: none;
+    font-family: "游ゴシック体", "Yu Gothic", YuGothic, sans-serif;
+    font-weight: bold;
+    padding-left: 0;
+}
+
+
+header{
+    display: grid;    
+    grid-template-columns: 3fr 7fr;
+    border-bottom: 1px ridge;
+    position: fixed;
+    top: 0;
+    width: 80%;                /* 横幅100%　*/
+    height: 15%;              /* 縦幅140px */
+    background-color: white;
+}
+
+.icon_list{
+    background-color: white;
+    text-align: right;
+}
+
+.icon_list li{
+    display: inline-block;
+}
+
+.chat_contents{
+    width: 100%;                /* 横幅100%　*/
+    height: 70%;              /* 縦幅140px */       
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 80%;                /* 横幅100%　*/
+    height: 15%;              /* 縦幅140px */   
+    background-color: white;
+}
+
+form{
+    height: 100%;
+    width: 70%;    
+    margin: 0px auto;
+    display: block;
+    padding-bottom: 10px;
+}
+
+textarea{
+    height: 90%; 
+    width: 95%;    
+    resize: none;
+
+    border: 2px solid gray;  /* 枠線 */
+    border-radius: 0.67em;   /* 角丸 */
+    padding: 0.5em;          /* 内側の余白量 */
+    background-color: snow;  /* 背景色 */
+    box-sizing: border-box;  /* ※これがないと横にはみ出る */
+    font-size: 1em;          /* 文字サイズ */
+    line-height: 1.2;        /* 行の高さ */
+}
+
