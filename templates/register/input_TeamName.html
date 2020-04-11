@@ -19,8 +19,7 @@
 <div class="in_body row">
 
     <div class="info_main col-10 offset-1">
-        <h1>まず、メールアドレスを入力してください</h1>
-        <p>あとは確認メールを1通チェックするだけで、メールで一杯の受信箱にもお別れです！</p>
+        <p>あとはチーム名を決めるだけで、メールで一杯の受信箱にもお別れです！</p>
 
         <form action="" method="POST">
             {{ form.non_field_errors }}
@@ -33,21 +32,8 @@
                 <label for="{{ field.id_for_label}}">{{ field.label_tag }}</label>
                 {{ field }}
                 {{ field.errors }}
-                <!-- <input type="email" class="form-control" placeholder="自分の名前@example.com"> -->
             </div>
 
-            <!-- 
-                    <div class="form-group">
-                        <label>パスワード</label>
-                        <input type="password" class="form-control" placeholder="Password">
-                    </div>
-
-
-                    <div class="form-group">
-                        <label>パスワードの確認</label>
-                        <input type="password" class="form-control" placeholder="Password">
-                    </div>
-                    -->
             {% endfor %}
             {% csrf_token %}
             <button type="submit" class="btn btn-primary btn-lg">送信</button>

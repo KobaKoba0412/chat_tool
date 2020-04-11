@@ -1,0 +1,9 @@
+{{ user.email }} 様 より　{{ guest_email }} 様　へのチームへの招待がありました。
+
+招待を受け入れる際には、下記URLよりサイトにアクセスして頂くだけで
+チームへの参加ができます。
+
+本登録用URL
+{{ protocol}}://{{ domain }}{% url 'register:join_done' token %}
+
+ほにゃらら

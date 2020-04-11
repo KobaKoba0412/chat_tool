@@ -37,9 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',
-    'register',
+    'django.contrib.sites',
+    'accounts',         #管理サイト
+    'register',         #ユーザ登録
+    'authentication',   #ユーザログイン/ログアウト
+    'chat',             #chat
+    'invitations',
 ]
+
+SITE_ID = 3
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -150,3 +156,5 @@ if DEBUG:
     DEBUG_TOOLBAR_CONFIG = {
         'SHOW_TOOLBAR_CALLBACK' :show_toolbar,
     }
+
+ACCOUNT_ADAPTER = 'invitations.models.InvitationsAdapter'

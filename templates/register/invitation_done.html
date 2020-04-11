@@ -19,8 +19,10 @@
 <div class="in_body row">
 
     <div class="info_main col-10 offset-1">
-        <h1>ご記入ありがとうございます。<br>仮登録が完了しました。</h1>
-        <p>emailを送信しましたので、記載のURLから本登録を完了してください。</p>
+        <h1>友達を招待しました。</h1>
+        <form action="{% url 'chat:chat_main' %}" method="GET">
+            <button type="submit" class="btn btn-primary btn-lg">次へ</button>
+        </form>
     </div>
 </div>
 

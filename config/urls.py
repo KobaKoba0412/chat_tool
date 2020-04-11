@@ -22,6 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('register/', include('register.urls')),
+    path('authentication/', include('authentication.urls')),
+    path('chat/', include('chat.urls')),
+    path('invitations/', include('invitations.urls', namespace='invitations')),
 ]
 
 if settings.DEBUG :
