@@ -42,7 +42,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     usernameの代わりにemailを使うようにしている。
     """
 
-    email = models.EmailField(_('email address'), unique=True)
+    email = models.EmailField(_('email address') ,unique=True)
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=150, blank=True)
 
@@ -95,16 +95,14 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         """
         return self.email
 
+"""
 class WorkPlace(models.Model):
 
-    """ WorkPlace モデル　"""
     class Meta:
         #テーブル名を定義
         db_table = 'WorkPlace'
 
-    name = models.CharField("ワークプレース",max_length = 128)
-    team_name = models.CharField("チーム名",max_length = 128, null=True)
-    work_place_url = models.CharField("slac url", max_length=100, null=True)
+    name = models.CharField("チーム名",max_length = 128, null=True)
 
     members = models.ManyToManyField("CustomUser",
                                      through="WorkPlacePersonRelation")  # 追加
@@ -112,23 +110,20 @@ class WorkPlace(models.Model):
 
 class WorkPlacePersonRelation(models.Model) :
 
-    """ WorkPlace＆Person リレーション モデル　"""
     class Meta:
         #テーブル名を定義
         db_table = 'Relation_WorkPlacePerson'
 
-    NOT_EXIT = 0 # 0:離席
-    EXIT = 1     #1:着席
-
     workPlace = models.ForeignKey("WorkPlace", on_delete=models.CASCADE)
     User = models.ForeignKey("CustomUser", on_delete=models.CASCADE)
-
-    login_status = models.IntegerField("ログインステータス") # 0:離席　1:着席
+    
+    class Meta:
+        # 同一のチーム内に同一ユーザがいる場合は制約を設ける
+        unique_together = (('workPlace', 'User', ), ) 
 
 
 class Channel(models.Model):
 
-    """ Channel モデル　"""
     class Meta:
         #テーブル名を定義
         db_table = 'Channel'
@@ -139,7 +134,6 @@ class Channel(models.Model):
 
 class direct_message(models.Model):
 
-    """　direct_message情報　モデル　"""
     class Meta:
         #テーブル名を定義
         db_table = 'direct_message'
@@ -154,7 +148,6 @@ class direct_message(models.Model):
 
 class Channel_message(models.Model):
 
-    """　Channel_message情報　モデル　"""
     class Meta:
         #テーブル名を定義
         db_table = 'Channel_message'
@@ -165,3 +158,5 @@ class Channel_message(models.Model):
                                     on_delete=models.CASCADE,
                                     related_name="send_member")
     send_time = models.DateTimeField("送信時刻")
+
+"""

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_title %}ワークスペースを作成する | Slack{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/make_workspace.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="headerinf row">
+    <div class="icon col-3">
+        <h1>
+            <a href="signin.html"><img src="{% static 'images/slack_logo.jpg' %}" alt="slack" class="logo"></a>
+        </h1>
+    </div>
+</div>
+
+<div class="in_body row">
+
+    <div class="info_main col-10 offset-1">
+        <p>あとはチーム名を決めるだけで、メールで一杯の受信箱にもお別れです！</p>
+
+        <form action="" method="POST">
+            {{ form.non_field_errors }}
+            {% for field in form %}
+
+            <!-- パスワード入力エリア -->
+            <!-- パスワード確認用エリア -->
+            <div class="form-group">
+                <label for="{{ field.id_for_label}}">{{ field.label_tag }}</label>
+                {{ field }}
+                {{ field.errors }}
+            </div>
+
+            {% endfor %}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary btn-lg">送信</button>
+            <input type="hidden" name="user" value="{{ user }}">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

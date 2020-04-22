@@ -42,19 +42,6 @@
                         {{ field.errors }}
                         <!-- <input type="email" class="form-control" placeholder="自分の名前@example.com"> -->
                     </div>
-
-                    <!-- 
-                    <div class="form-group">
-                        <label>パスワード</label>
-                        <input type="password" class="form-control" placeholder="Password">
-                    </div>
-
-
-                    <div class="form-group">
-                        <label>パスワードの確認</label>
-                        <input type="password" class="form-control" placeholder="Password">
-                    </div>
-                    -->
                     {% endfor %}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-primary btn-lg">送信</button>

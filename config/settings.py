@@ -134,7 +134,7 @@ STATIC_ROOT = '/var/www/{}/static'.format(PROJECT_NAME)
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # ログイン設定
-LOGIN_URL = 'accounts:Login'
+LOGIN_URL = 'accounts:LogIn'
 LOGIN_REDIRECT_URL = 'accounts:Slack'
 
 #Email 設定
@@ -158,3 +158,10 @@ if DEBUG:
     }
 
 ACCOUNT_ADAPTER = 'invitations.models.InvitationsAdapter'
+
+# invitation設定
+ACCOUNT_ACTIVATION_DAYS = 7
+ACCOUNT_INVITATION_DAYS = 7
+INVITATIONS_PER_USER = 3
+INVITE_MODE = True
+INVITATIONS_SIGNUP_REDIRECT = 'accounts:LogIn'
