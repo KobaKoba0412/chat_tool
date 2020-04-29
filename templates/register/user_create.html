@@ -6,59 +6,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--bootstrap-->
+    <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!--個別適用CSS-->
     <link rel="stylesheet" href="{% static 'css/make_workspace.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>ワークスペースを作成する | Slack</title>
+    <!------ Include the above in your HEAD tag ---------->
+    <title>ユーザー登録</title>
 </head>
 
 <body>
-    <div class="container">
+    {% load static %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <div class="headerinf row">
-            <div class="icon col-3">
-                <h1>
-                    <a href="signin.html"><img src="{% static 'images/slack_logo.jpg' %}" alt="slack" class="logo"></a>
-                </h1>
-            </div>
-        </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" >Home</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-        <div class="in_body row">
-
-            <div class="info_main col-10 offset-1">
-                <p>仮登録をまずはおこないます。</p>
-                <p>お手数ですが、メールアドレスとパスワードを入力してください。</p>
-
-                <form action="{% url 'register:user_create' %}" method="POST">
-                    {{ form.non_field_errors }}
-                    {% for field in form %}
-
-                    <!-- Eメール入力エリア -->
-                    <!-- パスワード入力エリア -->
-                    <!-- パスワード確認用エリア -->
-                    <div class="form-group">
-                        <label for="{{ field.id_for_label}}">{{ field.label_tag }}</label>
-                        {{ field }}
-                        {{ field.errors }}
-                        <!-- <input type="email" class="form-control" placeholder="自分の名前@example.com"> -->
-                    </div>
-                    {% endfor %}
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-primary btn-lg">送信</button>
-                </form>
-            </div>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-            crossorigin="anonymous"></script>
-
+    <div class="jumbotron">
+      <h1 class="display-4">*IDLY**</h1>
+      <p class="lead">Djangoでチャットアプリを0から作成してみた</p>
+      <hr class="my-2">
     </div>
-</body>
 
+    <div class="container">
+        <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+            </form><!-- /form -->
+            <a href="#" class="forgot-password">
+                Forgot the password?
+            </a>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+
+<!-- Footer -->
+<!--検討中-->
+<footer class=""></footer>
+<!-- Footer -->
+
+</body>
 </html>
