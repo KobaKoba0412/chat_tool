@@ -23,8 +23,8 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('register/', include('register.urls')),
     path('authentication/', include('authentication.urls')),
-    path('chat/', include('chat.urls')),
     path('invitations/', include('invitations.urls', namespace='invitations')),
+    path('chat/', include('chat.urls', namespace='chat')), 
 ]
 
 if settings.DEBUG :

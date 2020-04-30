@@ -1,22 +1,33 @@
-from django.shortcuts import render
-from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views import View
-from django.contrib.auth.views import (
-    LoginView, LogoutView
-)
-from django.contrib.sites.shortcuts import get_current_site
-from django.core.signing import BadSignature, SignatureExpired, loads, dumps
-from django.http import Http404, HttpResponseBadRequest
-from django.shortcuts import redirect
-from django.template.loader import render_to_string
-from django.views import generic
 
-from django.core.exceptions import ValidationError
+from .models import *
+from django.http import HttpResponseRedirect, HttpResponse
+from django.template import loader
+from django.shortcuts import redirect
+from django.urls import reverse
+from django.views import generic
 
 User = get_user_model()
 
-class ChatMain(generic.TemplateView):
-    """チャット画面"""
-    template_name = 'chat/chat_main.html'
+def index(request):
+    room_list = Room.objects.order_by('-created_at')[:5]
+    template = loader.get_template('chat/index.html')
+    context = {
+        'room_list': room_list,
+    }
+    return HttpResponse(template.render(context, request))
+
+def chat(request, room_name):
+    messages = Message.objects.filter(room__name=room_name).order_by('-created_at')[:50]
+    room = Room.objects.filter(name=room_name)[0]
+    template = loader.get_template('chat/chat_room.html')
+    context = {
+        'messages': messages,
+        'room': room
+    }
+    return HttpResponse(template.render(context, request))
+
+def room(request):
+    name = request.POST.get("room_name")
+    room = Room.objects.create(name=name)
+    return HttpResponseRedirect(reverse('chat:chat_room', args=[name]))
