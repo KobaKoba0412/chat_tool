@@ -18,10 +18,8 @@ from .forms import (
 from .backends import (HashedPasswordAuthBackend,)
 
 from django.core.exceptions import ValidationError
-from invitations.utils import get_invitation_model
 
 User = get_user_model()
-Invitation = get_invitation_model()
 ...
 ...
 class UserCreate(generic.CreateView):

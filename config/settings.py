@@ -39,14 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
-    'accounts',         #管理サイト
+    'accounts',         #ユーザログイン/ログアウト
     'register',         #ユーザ登録
-    'authentication',   #ユーザログイン/ログアウト
-    'invitations',
 ]
 
-SITE_ID = 3
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -170,11 +166,4 @@ if DEBUG:
         'SHOW_TOOLBAR_CALLBACK' :show_toolbar,
     }
 
-ACCOUNT_ADAPTER = 'invitations.models.InvitationsAdapter'
 
-# invitation設定
-ACCOUNT_ACTIVATION_DAYS = 7
-ACCOUNT_INVITATION_DAYS = 7
-INVITATIONS_PER_USER = 3
-INVITE_MODE = True
-INVITATIONS_SIGNUP_REDIRECT = 'accounts:LogIn'

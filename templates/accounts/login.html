@@ -34,16 +34,7 @@
             <p>メールアドレスとパスワードを入力してください。</p>
 
                 <form action="" method="POST">
-
-                <!-- Eメール入力エリア -->
-                <!-- <div class="form-group"> -->
-                    <!-- <input type="email" class="form-control" placeholder="you@example.com"> -->
-                <!-- </div> -->
-                <!-- パスワード入力エリア -->
-                <!-- <div class="form-group"> -->
-                    <!-- <input type="password" class="form-control" placeholder="パスワード"> -->
-                <!-- </div> -->
-                
+               
                 {{ form.non_field_errors }}
                 {% for field in form %}
                 {{ field }}
