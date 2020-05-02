@@ -228,7 +228,7 @@ class JoinDone(View):
         auth.authenticate(request=request)
         login(request, user)
 
-        return redirect('chat:chat_main')
+        return redirect('chat:index')
 
 join_done = JoinDone.as_view()
 
