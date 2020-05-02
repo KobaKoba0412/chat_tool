@@ -60,6 +60,12 @@ a {
     color: white;
 }
 
+.logout {
+    position: absolute;
+    left: 20px;
+    color: white;
+}
+
 .send {
     padding: 10px;
     padding-left: 20px;

@@ -145,6 +145,7 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 # ログイン設定
 LOGIN_URL = 'accounts:LogIn'
 LOGIN_REDIRECT_URL = 'accounts:LogIn'
+LOGOUT_REDIRECT_URL='accounts:LogIn'
 
 #Email 設定
 #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'#実際に送信
