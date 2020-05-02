@@ -1,112 +1,77 @@
-{% extends "../base.html" %}
-
-{% block page_title %}サインイン | Slack{% endblock %}
-
-{% block extra-css %}
+<!DOCTYPE html>
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/signin_mail.css' %}"> 
-{% endblock %}
+<html lang="jap">
 
-{% block content %}
-<header class="border-bottom">
-    <div class="row">
-        <div class="icon col-2 mt-2">
-            <h1>
-                <a href="signin.html"><img src="{% static 'icon/slack_logo.jpg' %}" alt="slack" class="logo"></a>
-            </h1>
-        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/signin_mail.css' %}">
+    <!------ Include the above in your HEAD tag ---------->
+    <title>ユーザー登録</title>
+</head>
 
-        <div class="header_list col-10 mt-3">
-            <ul>
-                <li class="mx-1 px-2">製品</li>
-                <li class="mx-1 px-2">料金プラン</li>
-                <li class="mx-1 px-2">サポート</li>
-                <li class="participating_workspace mx-1 p-1">参加中のワークスペース</li>
-            </ul>
-        </div>
+<body>
+    {% load static %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" >Home</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="jumbotron">
+      <h1 class="display-4">**IDLY**</h1>
+      <p class="lead">ログイン</p>
+      <hr class="my-2">
     </div>
-</header>
 
-<section class="body bg-light">
-    <div class="signin_main border">
-        <h1>サインイン</h1>
-        <div class="signin_sub">
-            <p>メールアドレスとパスワードを入力してください。</p>
-
-                <form action="" method="POST">
-               
+    <div class="container">
+        <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form action="" method="POST">
                 {{ form.non_field_errors }}
                 {% for field in form %}
-                {{ field }}
-                {{ field.errors }}
-                <hr>
-                {% endfor %}
 
-                <button type="submit" class="btn_sainin btn-success">サインイン</button>
-                <div class="checkbox">
+                <!-- Eメール入力エリア -->
+                <!-- パスワード入力エリア -->
+                <!-- パスワード確認用エリア -->
+                <div class="form-group">
+                    <!--<label for="{{ field.id_for_label}}">{{ field.label_tag }}</label>-->
+                    {{ field }}
+                    {{ field.errors }}
+                    <!-- <input type="email" class="form-control" placeholder="自分の名前@example.com"> -->
+                </div>
+                {% endfor %}
+                <div id="remember" class="checkbox">
                     <label>
-                        <input type="checkbox">ログイン情報を記録する
+                        <input type="checkbox" value="remember-me"> Remember me
                     </label>
                 </div>
-            {% csrf_token %}
+                <!--<button type="submit" class="btn btn-primary btn-lg">送信</button>-->
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+                {% csrf_token %}
             </form>
+            <a href="{% url 'register:user_create' %}" class="forgot-password">Forgot the password?</a>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+<!-- Footer -->
+<!--検討中-->
+<footer class=""></footer>
+<!-- Footer -->
 
-            <a href="./find.html">パスワードを忘れてしまった？ · どのメールアドレスを登録したか忘れてしまった？​</a>
-        </div>
-    </div>
-    <div class="make_workspace">
-        <a href="./make_workspace.html">ワークスペースを新規作成する</a>
-    </div>
-</section>
-
-<footer class="p-5">
-    <div class="row mx-3">
-        <div class="col">
-
-            <ul>
-                <li>SLACK の使い方</li>
-                <li>製品</li>
-                <li>エンタープライズ</li>
-                <li>料金プラン</li>
-                <li>サポート</li>
-                <li>Slackガイド</li>
-                <li>Appディレクトリ</li>
-                <li>API</li>
-            </ul>
-        </div>
-
-        <div class="col">
-            <ul>
-                <li>SLACK❤</li>
-                <li>仕事</li>
-                <li>カスタマー</li>
-                <li>開発者</li>
-                <li>イベント</li>
-                <li>ブログ</li>
-            </ul>
-        </div>
-
-        <div class="col">
-            <ul>
-                <li>リーガル情報</li>
-                <li>プライバシー</li>
-                <li>セキュリティ</li>
-                <li>サービス利用規約</li>
-                <li>ポリシー</li>
-            </ul>
-        </div>
-
-        <div class="col">
-            <ul>
-                <li>便利なリンク</li>
-                <li>デスクトップアプリをダウンロードする</li>
-                <li>モバイル版アプリをダウンロード</li>
-                <li>ブランドガイドライン</li>
-                <li>オフィスでのSlack</li>
-                <li>ステータス</li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
-{% endblock %}
+</body>
+</html>

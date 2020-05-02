@@ -34,8 +34,8 @@
     </nav>
 
     <div class="jumbotron">
-      <h1 class="display-4">*IDLY**</h1>
-      <p class="lead">Djangoでチャットアプリを0から作成してみた</p>
+      <h1 class="display-4">**IDLY**</h1>
+      <p class="lead">ユーザー登録</p>
       <hr class="my-2">
     </div>
 
@@ -44,20 +44,24 @@
             <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
             <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
             <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin">
-                <span id="reauth-email" class="reauth-email"></span>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <div id="remember" class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
+            <form action="{% url 'register:user_create' %}" method="POST">
+                {{ form.non_field_errors }}
+                {% for field in form %}
+
+                <!-- Eメール入力エリア -->
+                <!-- パスワード入力エリア -->
+                <!-- パスワード確認用エリア -->
+                <div class="form-group">
+                    <!--<label for="{{ field.id_for_label}}">{{ field.label_tag }}</label>-->
+                    {{ field }}
+                    {{ field.errors }}
                 </div>
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
-            </form><!-- /form -->
-            <a href="#" class="forgot-password">
-                Forgot the password?
-            </a>
+                {% endfor %}
+                <!--<button type="submit" class="btn btn-primary btn-lg">送信</button>-->
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">register</button>
+                {% csrf_token %}
+            </form>
+
         </div><!-- /card-container -->
     </div><!-- /container -->
 
