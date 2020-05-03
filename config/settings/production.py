@@ -10,12 +10,12 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-
 # メールサーバーへの接続設定
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'spam@gmail.com'
-EMAIL_HOST_PASSWORD = 'gmailパスワード'
+EMAIL_HOST_USER = 'testchat4649@gmail.com'
+EMAIL_HOST_PASSWORD = 'rpviipqgpmneuoeh' #アプリパスワード
+# EMAIL_HOST_PASSWORD = 'test40612054'
 EMAIL_USE_TLS = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'#実際に送信

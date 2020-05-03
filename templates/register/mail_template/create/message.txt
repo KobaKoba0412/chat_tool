@@ -5,5 +5,3 @@
 
 本登録用URL
 {{ protocol}}://{{ domain }}{% url 'register:join_done' token %}
-
-ほにゃらら

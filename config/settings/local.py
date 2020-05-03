@@ -11,7 +11,9 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 #Email 設定
-EMAIL_BACKEND = 'config.email_backends.ReadableSubjectEmailBackend'#コンソールに表示
+# EMAIL_BACKEND = 'config.email_backends.ReadableSubjectEmailBackend'#コンソールに表示
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'#実際に送信
 
 if DEBUG:
     def show_toolbar(request):
