@@ -144,7 +144,7 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # ログイン設定
 LOGIN_URL = 'accounts:LogIn'
-LOGIN_REDIRECT_URL = 'accounts:LogIn'
+LOGIN_REDIRECT_URL = 'chat:index'
 LOGOUT_REDIRECT_URL='accounts:LogIn'
 
 #Email 設定
