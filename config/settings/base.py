@@ -138,4 +138,4 @@ LOGIN_URL = 'accounts:LogIn'
 LOGIN_REDIRECT_URL = 'chat:index'
 LOGOUT_REDIRECT_URL='accounts:LogIn'
 
-DEFAULT_FROM_EMAIL = 'imagista@outlook.jp' #デフォルトの送信元のメールアドレス
+DEFAULT_FROM_EMAIL = 'from@example.com' #デフォルトの送信元のメールアドレス
