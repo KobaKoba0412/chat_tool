@@ -13,20 +13,11 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 PROJECT_NAME = os.path.basename(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'l*1^widpmcfsp%m@z&@1uj9t%rgu7s!e%&clx9=)j$_gmm7(-r'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -147,24 +138,4 @@ LOGIN_URL = 'accounts:LogIn'
 LOGIN_REDIRECT_URL = 'chat:index'
 LOGOUT_REDIRECT_URL='accounts:LogIn'
 
-#Email 設定
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'#実際に送信
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #コンソールに表示
 DEFAULT_FROM_EMAIL = 'imagista@outlook.jp' #デフォルトの送信元のメールアドレス
-
-if DEBUG:
-    def show_toolbar(request):
-        return True
-    
-    INSTALLED_APPS += (
-        'debug_toolbar',
-    )
-    MIDDLEWARE +=(
-        'debug_toolbar.middleware.DebugToolbarMiddleware',
-    )
-
-    DEBUG_TOOLBAR_CONFIG = {
-        'SHOW_TOOLBAR_CALLBACK' :show_toolbar,
-    }
-
-
