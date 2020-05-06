@@ -75,20 +75,6 @@ CHANNEL_LAYERS = {
     },
 }
 
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-# mysite/settings.py
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        "TEST": {
-            "NAME": os.path.join(BASE_DIR, "db_test.sqlite3"),
-        },
-    }
-}
-
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -129,6 +115,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = '/var/www/{}/static'.format(PROJECT_NAME)
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # カスタムユーザクラス
 AUTH_USER_MODEL = 'accounts.CustomUser'
