@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class Room(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-    name = models.CharField(max_length=50)
+    name = models.CharField("ルーム名",max_length=50)
     created_at = models.DateTimeField(default=timezone.now)
 
 class Message(models.Model):

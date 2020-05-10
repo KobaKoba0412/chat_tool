@@ -9,16 +9,23 @@ from django.views import generic
 from django.shortcuts import render
 from django.views.generic.base import View
 
+from .forms import CreateRoomForm
+
 User = get_user_model()
 
-class index(View):
-    
-    def get(self, request, *args, **kwargs ):
+class index(generic.CreateView):
+
+    template_name = 'chat/index.html'
+    form_class = CreateRoomForm
+
+    def get_context_data(self, **kwargs):
         room_list = Room.objects.order_by('-created_at')[:5]
-        context = {
-            'room_list': room_list,
-        }
-        return render( request, 'chat/index.html', context )
+        kwargs["room_list"] = room_list
+        return super().get_context_data(**kwargs)
+
+    def form_valid(self, form):
+        room = form.save()
+        return HttpResponseRedirect(reverse('chat:chat_room', args=[room.name]))
 
 class chat(View):
     
@@ -33,9 +40,3 @@ class chat(View):
         }
         return HttpResponse(template.render(context, request))
 
-class room(View):
-    
-    def post(self, request, *args, **kwargs ):
-        name = request.POST.get("room_name")
-        room = Room.objects.create(name=name)
-        return HttpResponseRedirect(reverse('chat:chat_room', args=[name]))

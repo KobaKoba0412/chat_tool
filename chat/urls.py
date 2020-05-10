@@ -8,6 +8,5 @@ app_name = 'chat'
 
 urlpatterns = [
     path('', login_required(views.index.as_view()), name='index'),
-    path('<str:room_name>', login_required(views.chat.as_view()), name='chat_room'),
-    path('room/', login_required(views.room.as_view()), name='room'),
+    path('<str:room_name>', login_required(views.chat.as_view()), name='chat_room'), 
 ]

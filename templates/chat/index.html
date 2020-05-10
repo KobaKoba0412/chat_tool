@@ -9,11 +9,18 @@
 
 <h2>ルームを新しく作成する<h2>
 <div class="create-room-box">
-    <form action="{% url 'chat:room' %}" method="post">
-        {% csrf_token %}
-        <input placeholder="ルーム名を入力" type="text" name="room_name" value="">
+    <form action="" method="post">
+            {% for field in form %}
+            {{ field }}
+            {{ field.errors }}
+            {% endfor %}
+            {% csrf_token %}
         <input type="submit" class="send" name="button" value="作成"> 
     </form>
+</div>
+
+<div class="error-box">
+    {{ form.non_field_errors }}
 </div>
 
 <h2>ルーム一覧</h2>
