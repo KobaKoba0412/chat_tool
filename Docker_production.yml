@@ -1,0 +1,58 @@
+version: '3.7'
+
+services:
+    # サービス名は自由に設定
+    django:
+        # slackディレクトリの中から`Dockerfile`を探す
+        build: 
+            context: ./slack
+
+        # サービス起動後に入力されるコマンドを設定
+        #command: python manage.py runserver 0.0.0.0:8000 #django付属サーバー
+        #command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
+        command: gunicorn --access-logfile - --workers 3 --bind 0.0.0.0:8000 -k uvicorn.workers.UvicornWorker config.asgi:application
+
+        # データを永続化させる場合の設定。`host:container`でパスを記載
+        volumes: # ホスト側のパス: docker内のパス
+            - ./slack/:/usr/src/app/
+            - static_volume:/var/www/app/static/
+        # 指定されたポートは接続されたサービスからアクセス可能
+        expose:
+            - 8000
+        links:
+            - redis
+            - postgres
+        env_file: .env
+        environment:
+            - DATABASE=postgres
+            - SETTING_FILE=config.settings.production
+    redis:
+        image: "redis:latest"
+        ports:
+            - "6379:6379"
+        volumes:
+            - ./storage/redis:/data
+        command: redis-server --appendonly yes
+    postgres:
+        image: postgres:11.4-alpine
+        ports: 
+            - "5432:5432"
+        env_file: .env
+        environment:
+            - POSTGRES_USER=KojiKoba
+            - POSTGRES_PASSWORD=mysecretpassword1234
+            - POSTGRES_DB=chat
+
+        volumes:
+            - ./storage/postgres:/docker-entrypoint-initdb.d
+    nginx:
+        build: ./nginx
+        ports: 
+            - 1337:80
+        links:
+            - django
+        volumes: 
+            - static_volume:/var/www/app/static/
+ 
+volumes:
+    static_volume:

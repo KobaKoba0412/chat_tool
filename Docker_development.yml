@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+    # サービス名は自由に設定
+    django:
+        # slackディレクトリの中から`Dockerfile`を探す
+        build: 
+            context: ./slack
+
+        # サービス起動後に入力されるコマンドを設定
+        command: python manage.py runserver 0.0.0.0:8000
+        # データを永続化させる場合の設定。`host:container`でパスを記載
+        volumes: # ホスト側のパス: docker内のパス
+            - ./slack/:/usr/src/app/
+        # 開放するポートを指定。`host:container`でポートを記載
+        ports:
+            - 8000:8000
+        links:
+            - redis
+        env_file: .env
+        environment:
+            - SETTING_FILE=config.settings.local
+    redis:
+        image: "redis:latest"
+        ports:
+            - "6379:6379"
+        volumes:
+            - ./storage/redis:/data
+        command: redis-server --appendonly yes
